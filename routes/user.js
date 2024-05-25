@@ -14,7 +14,7 @@ router.post('/register', async (req, res) => {
     const savedUser = await newUser.save();
     res.status(201).json("Usuario agregado existosamente" );
   } catch (err) {
-    res.status(500).json(err);
+    res.status(500).json("Error");
   }
 });
 
@@ -32,7 +32,7 @@ router.post('/login', async (req, res) => {
 
     res.status(200).json("usuario logueado exitosamente");
   } catch (err) {
-    res.status(500).json(err);
+    res.status(500).json("Error");
   }
 });
 
@@ -42,7 +42,7 @@ router.get('/', async (req, res) => {
     const users = await User.find();
     res.status(200).json(users);
   } catch (err) {
-    res.status(500).json(err);
+    res.status(500).json("Error");
   }
 });
 
@@ -55,7 +55,7 @@ router.get('/:id', async (req, res) => {
     }
     res.status(200).json(user);
   } catch (err) {
-    res.status(500).json(err);
+    res.status(500).json("Error");
   }
 });
 
@@ -69,7 +69,7 @@ router.put('/:id', async (req, res) => {
     );
     res.status(200).json("Usuario actualizado exitosamente");
   } catch (err) {
-    res.status(500).json(err);
+    res.status(500).json("Error");
   }
 });
 
@@ -79,7 +79,7 @@ router.delete('/:id', async (req, res) => {
     await User.findByIdAndDelete(req.params.id);
     res.status(200).json('Usuario eliminado');
   } catch (err) {
-    res.status(500).json(err);
+    res.status(500).json("Error");
   }
 });
 
